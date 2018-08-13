@@ -1,0 +1,33 @@
+{
+  "name": "redux-monocle-ts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/ramda": "^0.25.36",
+    "@types/react-redux": "^6.0.6",
+    "fp-ts": "^1.7.1",
+    "monocle-ts": "^1.2.0",
+    "ramda": "^0.25.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-scripts-ts": "2.17.0",
+    "redux": "^4.0.0",
+    "semantic-ui-react": "^0.82.2"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@material-ui/core": "^1.5.0",
+    "@material-ui/icons": "^2.0.2",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.7",
+    "@types/react": "^16.4.9",
+    "@types/react-dom": "^16.0.7",
+    "typescript": "^3.0.1"
+  }
+}
