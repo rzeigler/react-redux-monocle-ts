@@ -36,7 +36,7 @@ function mapDispatchToProps<S>(dispatch: Dispatch, ownProps: OwnProps<AppState>)
         .compose(commander)
         .compose(kills)
         .modify(v => v + 1);
-      dispatch(update(pipe(updatePilots, updateCommander)));
+      dispatch(update(pipe(updatePilots, updateCommander), 'group kill'));
     },
     resetKills(): void {
       const updatePilots = ownProps.lens
@@ -48,7 +48,7 @@ function mapDispatchToProps<S>(dispatch: Dispatch, ownProps: OwnProps<AppState>)
         .compose(commander)
         .compose(kills)
         .set(0);
-      dispatch(update(pipe(updatePilots, updateCommander)));
+      dispatch(update(pipe(updatePilots, updateCommander), 'reset kills'));
     }
   }
 }
