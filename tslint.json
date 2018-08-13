@@ -13,6 +13,7 @@
     "object-literal-sort-keys": false,
     "member-access": false,
     "jsx-no-lambda": false,
-    "interface-over-type-literal": false
+    "interface-over-type-literal": false,
+    "no-console": false
   }
 }
