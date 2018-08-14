@@ -23,7 +23,10 @@ const styles = {
   card: {
     marginTop: "2px",
     marginBottom: "2px",
-    minWidth: 275
+    minWidth: 275,
+    maxWidth: 600,
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 }
 
@@ -45,7 +48,7 @@ class SquadronComponent extends Component<Props<AppState> & Dispatches & WithSty
           </div>
           {range(0, this.props.squadron.pilots.length).map((i: number) => (
             <div style={{margin: "8x"}}>
-              <PilotComponent key={`pilot-${this.props.squadron.name}-${i}`} lens={this.props.lens.compose(pilots).compose(index(i))} />
+              <PilotComponent key={`pilot-${this.props.squadron.name}-${i}`} containerLens={this.props.lens.compose(pilots)} lens={this.props.lens.compose(pilots).compose(index(i))} />
             </div>
           ))}
         </Card>
