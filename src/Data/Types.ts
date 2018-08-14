@@ -30,7 +30,14 @@ export interface AppState {
 
 export const squadrons = Lens.fromProp<AppState, 'squadrons'>('squadrons');
 
-export const index = <S>(i: number) => new Lens<ReadonlyArray<S>, S>(
+/**
+ * An example of creating a new lens.
+ * This lens does not exist in monocle as generally Traverses when working with arrays.
+ * This shows the get/set of an array.
+ * This is 'unsafe' because there is no bounds checking an this should technically be a Prism (or maybe Optional)
+ * Its only use is for supporting lens composition through an array of known size so we just ignore this problem.
+ */
+export const unsafeIndex = <S>(i: number) => new Lens<ReadonlyArray<S>, S>(
   a => a[i],
   a => s => s.slice(0, i).concat([a]).concat(s.slice(i + 1, s.length))
 )

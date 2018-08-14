@@ -9,13 +9,13 @@ export interface OwnProps<S> {
   lens: Lens<S, Mission>
 }
 
-function mapStateToProps(state: AppState, ownProps: OwnProps<AppState>): Props {
+function mapStateToProps<S>(state: S, ownProps: OwnProps<S>): Props {
   return {
     mission: ownProps.lens.get(state)
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action>, ownProps: OwnProps<AppState>): Dispatches {
+function mapDispatchToProps<S>(dispatch: Dispatch<Action>, ownProps: OwnProps<S>): Dispatches {
   return {
     setMission(m: Mission) {
       dispatch(update(ownProps.lens.set(m)));

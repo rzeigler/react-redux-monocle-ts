@@ -6,19 +6,23 @@ import { update } from 'src/Data/Action';
 import { Dispatch, Action } from 'redux';
 import NumberComponent from './component';
 
+/**
+ * Component implementations in this model
+ * This is an entirely generic number edit component. It needs
+ */
 export interface OwnProps<S> {
   lens: Lens<S, number>;
   label: string;
 }
 
-function mapStateToProps(state: AppState, ownProps: OwnProps<AppState>): Props {
+function mapStateToProps<S>(state: S, ownProps: OwnProps<S>): Props {
   return {
     value: ownProps.lens.get(state),
     label: ownProps.label
   }
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action>, ownProps: OwnProps<AppState>): Dispatches {
+function mapDispatchToProps<S>(dispatch: Dispatch<Action>, ownProps: OwnProps<S>): Dispatches {
   return {
     increment() {
       dispatch(update(ownProps.lens.modify(v => v + 1)));
@@ -29,4 +33,5 @@ function mapDispatchToProps(dispatch: Dispatch<Action>, ownProps: OwnProps<AppSt
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NumberComponent);
+const connected = connect(mapStateToProps, mapDispatchToProps)(NumberComponent);
+export default connected;

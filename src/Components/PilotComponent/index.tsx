@@ -11,14 +11,14 @@ export interface OwnProps<S> {
   containerLens?: Lens<S, ReadonlyArray<Pilot>>
 }
 
-function mapStateToProps(state: AppState, ownProps: OwnProps<AppState>): Props<AppState> {
+function mapStateToProps<S>(state: S, ownProps: OwnProps<S>): Props<S> {
   return {
     lens: ownProps.lens,
     pilot: ownProps.lens.get(state)
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action>, ownProps: OwnProps<AppState>): Dispatches {
+function mapDispatchToProps<S>(dispatch: Dispatch<Action>, ownProps: OwnProps<S>): Dispatches {
   return {
     kiaed(self: Pilot) {
       if (ownProps.containerLens) {

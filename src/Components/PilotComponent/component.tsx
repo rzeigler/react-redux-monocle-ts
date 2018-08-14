@@ -15,7 +15,7 @@ export interface Dispatches {
   kiaed(self: Pilot): void
 }
 
-class PilotComponent extends Component<Props<AppState> & Dispatches> {
+class PilotComponent<S> extends Component<Props<S> & Dispatches> {
   render() {
     const onKiaed = () => {
       this.props.kiaed(this.props.pilot);

@@ -42,9 +42,18 @@ export const initial: AppState = {
     }]
 }
 
+/**
+ * Consider what we previously saw with lenses.
+ * We have a mechanism for producing functions that perform immutable updates of complex objects.
+ * This is what the redux reducer is supposed to do.
+ * Lenses are more flexible, we can send an ad-hoc "reducer" built from a lens to the redux reducer to run
+ * This eliminates the explosion of action/interpreter boilerplate.
+ * @param state
+ * @param action
+ */
 export function reducer(state: AppState = initial, action: Action<any>) {
     if (action.type === 'step') {
-        return (action as StepAction).step(state);
+        return (action as StepAction<AppState>).step(state);
     }
     return state;
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { Lens } from "monocle-ts";
-import { Squadron, Mission, AppState, mission, sorties, commander, pilots, index } from 'src/Data/Types';
+import { Squadron, Mission, AppState, mission, sorties, commander, pilots, unsafeIndex } from 'src/Data/Types';
 import { Card, WithStyles, CardContent, withStyles, Typography, Button } from '@material-ui/core';
 import MissionSelectComponent from '../MissionSelectComponent';
 import NumberComponent from '../NumberComponent';
@@ -48,7 +48,7 @@ class SquadronComponent extends Component<Props<AppState> & Dispatches & WithSty
           </div>
           {range(0, this.props.squadron.pilots.length).map((i: number) => (
             <div key={`pilot-container-${this.props.squadron.name}-${i}`} style={{margin: "8x"}}>
-              <PilotComponent key={`pilot-component-${this.props.squadron.name}-${i}`} containerLens={this.props.lens.compose(pilots)} lens={this.props.lens.compose(pilots).compose(index(i))} />
+              <PilotComponent key={`pilot-component-${this.props.squadron.name}-${i}`} containerLens={this.props.lens.compose(pilots)} lens={this.props.lens.compose(pilots).compose(unsafeIndex(i))} />
             </div>
           ))}
         </Card>

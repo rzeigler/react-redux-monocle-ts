@@ -12,7 +12,7 @@ export interface OwnProps<S> {
     lens: Lens<S, Squadron>;
 }
 
-function mapStateToProps(state: AppState, ownProps: OwnProps<AppState>): Props<AppState> {
+function mapStateToProps<S>(state: S, ownProps: OwnProps<S>): Props<S> {
     return {
         ...ownProps,
         squadron: ownProps.lens.get(state)
@@ -21,7 +21,7 @@ function mapStateToProps(state: AppState, ownProps: OwnProps<AppState>): Props<A
 
 const pilotTravsal = fromTraversable(array)<Pilot>()
 
-function mapDispatchToProps<S>(dispatch: Dispatch, ownProps: OwnProps<AppState>): Dispatches {
+function mapDispatchToProps<S>(dispatch: Dispatch, ownProps: OwnProps<S>): Dispatches {
   return {
     setMission(m: Mission): void {
       dispatch(update(ownProps.lens.compose(mission).set(m)));

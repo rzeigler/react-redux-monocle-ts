@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { range } from 'ramda';
-import { Squadron, AppState, index } from 'src/Data/Types';
+import { Squadron, AppState, unsafeIndex } from 'src/Data/Types';
 import SquadronComponent from '../SquadronComponent';
 import './App.css';
 
@@ -22,10 +22,10 @@ const styles = {
   },
 };
 
-class App extends Component<Props<AppState> & WithStyles<typeof styles>> {
+class App<S> extends Component<Props<S> & WithStyles<typeof styles>> {
   render() {
     const childLenses = range(0, this.props.squadrons.length)
-      .map(i => index<Squadron>(i));
+      .map(i => unsafeIndex<Squadron>(i));
     return (
       <div className={this.props.classes.root}>
         <AppBar position="static">
