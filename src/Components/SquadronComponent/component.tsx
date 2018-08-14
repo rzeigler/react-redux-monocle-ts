@@ -26,7 +26,8 @@ const styles = {
     minWidth: 275,
     maxWidth: 600,
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    padding: "8px"
   }
 }
 
