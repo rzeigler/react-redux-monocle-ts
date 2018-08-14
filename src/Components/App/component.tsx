@@ -30,7 +30,7 @@ class App<S> extends Component<Props<S> & WithStyles<typeof styles>> {
       <div className={this.props.classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="title" color="inherit">Galactica Flight Room</Typography>
+            <Typography variant="title" color="inherit">BSG Flight Room</Typography>
           </Toolbar>
         </AppBar>
         {childLenses.map((lens, i) => (
