@@ -47,8 +47,8 @@ class SquadronComponent extends Component<Props<AppState> & Dispatches & WithSty
             <PilotComponent key={`pilot-${this.props.squadron.name}-commander`} lens={this.props.lens.compose(commander) } />
           </div>
           {range(0, this.props.squadron.pilots.length).map((i: number) => (
-            <div style={{margin: "8x"}}>
-              <PilotComponent key={`pilot-${this.props.squadron.name}-${i}`} containerLens={this.props.lens.compose(pilots)} lens={this.props.lens.compose(pilots).compose(index(i))} />
+            <div key={`pilot-container-${this.props.squadron.name}-${i}`} style={{margin: "8x"}}>
+              <PilotComponent key={`pilot-component-${this.props.squadron.name}-${i}`} containerLens={this.props.lens.compose(pilots)} lens={this.props.lens.compose(pilots).compose(index(i))} />
             </div>
           ))}
         </Card>
