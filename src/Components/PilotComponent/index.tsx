@@ -24,7 +24,7 @@ function mapDispatchToProps<S>(dispatch: Dispatch<Action>, ownProps: OwnProps<S>
       if (ownProps.containerLens) {
         dispatch(update(ownProps.containerLens.modify(
           pilots => pilots.filter(pilot => pilot !== self)
-        )))
+        ), 'kia', 'killing ' + self.callsign))
       }
     }
   }

@@ -1,5 +1,5 @@
-import { createStore, Action } from 'redux';
-import { StepAction } from './Action';
+import { createStore, Action, AnyAction } from 'redux';
+import { StepAction, isStepAction } from './Action';
 import { AppState } from './Types';
 
 export const initial: AppState = {
@@ -51,11 +51,11 @@ export const initial: AppState = {
  * @param state
  * @param action
  */
-export function reducer(state: AppState = initial, action: Action<any>) {
-    if (action.type === 'step') {
-        return (action as StepAction<AppState>).step(state);
-    }
-    return state;
+export function reducer(state: AppState = initial, action: AnyAction) {
+  if (isStepAction(action)) {
+    return (action as StepAction<AppState>).step(state);
+  }
+  return state;
 }
 
 export const store = createStore(
