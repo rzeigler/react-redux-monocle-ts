@@ -31,11 +31,11 @@ const styles = {
   }
 }
 
-class SquadronComponent extends Component<Props<AppState> & Dispatches & WithStyles<typeof styles>> {
+class SquadronComponent extends Component<Props<AppState> & Dispatches> {
   render() {
     return (
       <div>
-        <Card className={this.props.classes.card}>
+        <Card>
           <CardContent>
             <Typography variant="headline">{this.props.squadron.name}</Typography>
             <MissionSelectComponent lens={this.props.lens.compose(mission)} />
@@ -58,4 +58,4 @@ class SquadronComponent extends Component<Props<AppState> & Dispatches & WithSty
   }
 }
 
-export default withStyles(styles)(SquadronComponent);
+export default SquadronComponent;
